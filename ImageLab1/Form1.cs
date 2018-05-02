@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.Drawing.Imaging;
 using System.IO;
 using System.Linq;
@@ -17,6 +18,16 @@ namespace ImageLab1
         private Bitmap originalBitmap = null;
         private Bitmap previewBitmap = null;
         private Bitmap resultBitmap = null;
+        public static double[,] Laplacian3x3
+        {
+            get
+            {
+                return new double[,]
+                { { -1, -1, -1, },
+                { -1,  8, -1, },
+                { -1, -1, -1, }, };
+            }
+        }
 
         public Form1()
         {
@@ -117,9 +128,12 @@ namespace ImageLab1
             {
                 return;
             }
-            resultBitmap = previewBitmap.EdgeFilter();
+            //resultBitmap = previewBitmap.EdgeFilter();
+            resultBitmap = previewBitmap.EdgeDetection(Laplacian3x3,1.0, 0);
             resultImage.Image = resultBitmap;
         }
+
+        
 
         private void pseudoButton_Click(object sender, EventArgs e)
         {
@@ -138,6 +152,16 @@ namespace ImageLab1
                 return;
             }
             resultBitmap = previewBitmap.SpatialMediumFilter();
+            resultImage.Image = resultBitmap;
+        }
+
+        private void grayscaleButton_Click(object sender, EventArgs e)
+        {
+            if (previewBitmap == null)
+            {
+                return;
+            }
+            resultBitmap = previewBitmap.GrayScaleFilter();
             resultImage.Image = resultBitmap;
         }
     }

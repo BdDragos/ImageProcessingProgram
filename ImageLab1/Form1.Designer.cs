@@ -44,6 +44,7 @@
             this.edgeButton = new System.Windows.Forms.Button();
             this.pseudoButton = new System.Windows.Forms.Button();
             this.spatialButton = new System.Windows.Forms.Button();
+            this.grayscaleButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.loadImage)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.redVal)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.blueVal)).BeginInit();
@@ -219,11 +220,23 @@
             this.spatialButton.UseVisualStyleBackColor = true;
             this.spatialButton.Click += new System.EventHandler(this.spatialButton_Click);
             // 
+            // grayscaleButton
+            // 
+            this.grayscaleButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grayscaleButton.Location = new System.Drawing.Point(1393, 246);
+            this.grayscaleButton.Name = "grayscaleButton";
+            this.grayscaleButton.Size = new System.Drawing.Size(142, 52);
+            this.grayscaleButton.TabIndex = 19;
+            this.grayscaleButton.Text = "Grayscale";
+            this.grayscaleButton.UseVisualStyleBackColor = true;
+            this.grayscaleButton.Click += new System.EventHandler(this.grayscaleButton_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1546, 575);
+            this.Controls.Add(this.grayscaleButton);
             this.Controls.Add(this.spatialButton);
             this.Controls.Add(this.pseudoButton);
             this.Controls.Add(this.edgeButton);
@@ -271,6 +284,7 @@
         private System.Windows.Forms.Button edgeButton;
         private System.Windows.Forms.Button pseudoButton;
         private System.Windows.Forms.Button spatialButton;
+        private System.Windows.Forms.Button grayscaleButton;
     }
 }
 
